@@ -20,9 +20,9 @@ public class Menu {
                   Headset headset = new Headset(0.042,0.21);
 
                   System.out.println("Voer bestel bedrag in");
-                  headset.setOrderCosts(scanner.nextDouble());
+                  headset.setOrderCost(scanner.nextDouble());
                   System.out.println("Voer verzendkosten in");
-                  headset.setShippingCosts(scanner.nextDouble());
+                  headset.setShippingCost(scanner.nextDouble());
                   scanner.nextLine();
                   System.out.println("Voer het merknaam in");
                   headset.setBrand(scanner.nextLine());
@@ -44,12 +44,14 @@ public class Menu {
                   HeadsetHandler.getInstance().addHeadset(headset);
                   ProductHandler.addProduct(headset);
 
-
-                  System.out.println("Bestelbedrag:" + headset.getTotalOrdercost());
-
-                 System.out.println("Invoerrechten bedrag:" + headset.getCalculateImporfee());
-                 System.out.println("BTW bedrag:" + headset.getCalculateBtw());
-                 System.out.println("Totale prijs" + headset.getTotalPrice());
+                  headset.totalOrderCost = CalculatePrice.getTotalOrdercost(headset.getOrderCost(), headset.getShippingCost());
+                  System.out.println("Bestelbedrag:" + headset.totalOrderCost);
+                 headset.importfee = CalculatePrice.getCalculateImporfee(headset.totalOrderCost, headset.importfee);
+                 System.out.println("Invoerrechten bedrag:" + headset.importfee);
+                 headset.btw = CalculatePrice.getCalculateBtw(headset.totalOrderCost, headset.getOrderCost(), headset.getShippingCost(),headset.importfee, headset.btw);
+                 System.out.println("BTW bedrag:" + headset.btw );
+                 headset.totalPrice = CalculatePrice.getTotalPrice(headset.totalOrderCost, headset.importfee, headset.btw);
+                 System.out.println("Totale prijs" + headset.totalPrice);
               }
 
 
@@ -58,9 +60,9 @@ public class Menu {
             {
                 Speaker speaker = new Speaker(0.070, 0.17);
                 System.out.println("Voer bestel bedrag in");
-                speaker.setOrderCosts(scanner.nextDouble());
+                speaker.setOrderCost(scanner.nextDouble());
                 System.out.println("Voer verzendkosten in");
-                speaker.setShippingCosts(scanner.nextDouble());
+                speaker.setShippingCost(scanner.nextDouble());
                 scanner.nextLine();
                 System.out.println("Voer het merknaam in");
                 speaker.setBrand(scanner.nextLine());
@@ -73,14 +75,14 @@ public class Menu {
 
 
 
-
-                ProductHandler.addProduct(speaker);
-                SpeakerHandler.addSpeakers(speaker);
-                System.out.println("Bestelbedrag:" + speaker.getTotalOrdercost());
-
-                System.out.println("Invoerrechten bedrag:" + speaker.getCalculateImporfee());
-                System.out.println("BTW bedrag:" + speaker.getCalculateBtw());
-                System.out.println("Totale prijs" + speaker.getTotalPrice());
+//
+//                ProductHandler.addProduct(speaker);
+//                SpeakerHandler.addSpeakers(speaker);
+//                System.out.println("Bestelbedrag:" + speaker.getTotalOrdercost());
+//
+//                System.out.println("Invoerrechten bedrag:" + speaker.getCalculateImporfee());
+//                System.out.println("BTW bedrag:" + speaker.getCalculateBtw());
+//                System.out.println("Totale prijs" + speaker.getTotalPrice());
             }
 
                 break;

@@ -1,8 +1,10 @@
 abstract class Product {
-    private Double orderCosts;
-    private Double shippingCosts;
+    private Double orderCost;
+    private Double shippingCost;
     private String brand;
     private String color;
+
+
 
     public Double btwCost;
     public Double totalOrderCost;
@@ -19,13 +21,14 @@ abstract class Product {
         this.btw = btw;
     }
 
-    public void setOrderCosts(Double orderCosts) {
-        this.orderCosts = orderCosts;
+    public void setOrderCost(Double orderCost) {
+
+        this.orderCost = orderCost;
     }
 
 
-    public void setShippingCosts(Double shippingCosts){
-        this.shippingCosts = shippingCosts;
+    public void setShippingCost(Double shippingCost){
+        this.shippingCost = shippingCost;
     }
 
     public void setBrand(String brand) {
@@ -44,38 +47,57 @@ abstract class Product {
         return color;
     }
 
-
-    public Double getOrderCosts() {
-        return orderCosts;
+    public Double getBtwCost() {
+        return btwCost;
     }
 
-    public Double getShippingCosts() {
-        return shippingCosts;
+    public Double getOrderCost() {
+        return orderCost;
     }
 
-    public Double getTotalOrdercost() {
-        this.totalOrderCost =  (this.getOrderCosts() + this.getShippingCosts());
-        return this.totalOrderCost;
+    public Double getShippingCost() {
+        return shippingCost;
     }
 
-
-    public Double getTotalPrice() {
-        this.totalPrice =  (this.getOrderCosts() + this.getShippingCosts()) * (this.importfee + 1) * (this.btw +1);;
-        return this.totalPrice;
-    }
-
-
-
-    public Double getCalculateBtw() {
-        this.btwCost = (this.getOrderCosts() + this.getShippingCosts()) * (this.importfee+ 1) * this.btw;
-        return this.btwCost;
-    }
-
-
-    public Double getCalculateImporfee() {
-        this.totalImportfeeCost = (this.getOrderCosts() + this.getShippingCosts()) * this.importfee;
-        return this.totalImportfeeCost;
-    }
+//    public Double getTotalOrdercost() {
+//        this.totalOrderCost =  (this.getOrderCosts() + this.getShippingCosts());
+//        return this.totalOrderCost;
+//    }
+//
+//
+//    public Double getTotalPrice() {
+//
+//        if(totalOrderCost > 150) {
+//            this.totalPrice = (this.getOrderCosts() + this.getShippingCosts()) * (this.importfee + 1) * (this.btw + 1);
+//        }else {
+//            this.totalPrice = totalOrderCost ;
+//        }
+//
+//        return this.totalPrice;
+//    }
+//
+//
+//
+//    public Double getCalculateBtw() {
+//        if(totalOrderCost > 150){
+//            this.btwCost = (this.getOrderCosts() + this.getShippingCosts()) * (this.importfee+ 1) * this.btw;
+//        }else{
+//            this.btwCost = 0.0;
+//        }
+//
+//        return this.btwCost;
+//    }
+//
+//
+//    public Double getCalculateImporfee() {
+//        if(totalOrderCost > 150){
+//            this.totalImportfeeCost = (this.getOrderCosts() + this.getShippingCosts()) * this.importfee;
+//        }else{
+//            this.totalImportfeeCost = 0.0;
+//        }
+//
+//        return this.totalImportfeeCost;
+//    }
 
 
     public abstract String getSpecs();

@@ -14,7 +14,7 @@ public class SpeakerHandler {
             System.out.println("_______________");
             System.out.println("Productnaam:" + speaker.getBrand());
             System.out.println("Kleur:" + speaker.getColor());
-            System.out.println("totale prijs:" + speaker.getTotalPrice());
+            System.out.println("totale prijs:" + speaker.totalPrice);
             System.out.println("_______________");
         }
     }
