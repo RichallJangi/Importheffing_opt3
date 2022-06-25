@@ -59,45 +59,7 @@ abstract class Product {
         return shippingCost;
     }
 
-//    public Double getTotalOrdercost() {
-//        this.totalOrderCost =  (this.getOrderCosts() + this.getShippingCosts());
-//        return this.totalOrderCost;
-//    }
-//
-//
-//    public Double getTotalPrice() {
-//
-//        if(totalOrderCost > 150) {
-//            this.totalPrice = (this.getOrderCosts() + this.getShippingCosts()) * (this.importfee + 1) * (this.btw + 1);
-//        }else {
-//            this.totalPrice = totalOrderCost ;
-//        }
-//
-//        return this.totalPrice;
-//    }
-//
-//
-//
-//    public Double getCalculateBtw() {
-//        if(totalOrderCost > 150){
-//            this.btwCost = (this.getOrderCosts() + this.getShippingCosts()) * (this.importfee+ 1) * this.btw;
-//        }else{
-//            this.btwCost = 0.0;
-//        }
-//
-//        return this.btwCost;
-//    }
-//
-//
-//    public Double getCalculateImporfee() {
-//        if(totalOrderCost > 150){
-//            this.totalImportfeeCost = (this.getOrderCosts() + this.getShippingCosts()) * this.importfee;
-//        }else{
-//            this.totalImportfeeCost = 0.0;
-//        }
-//
-//        return this.totalImportfeeCost;
-//    }
+
 
 
     public abstract String getSpecs();

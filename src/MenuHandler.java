@@ -1,13 +1,13 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class MenuOpties {
+public class MenuHandler {
     public static int menuOpties(){
         int selectie;
         Scanner scanner = new Scanner(System.in);
         ArrayList<String> menuOpties = new ArrayList<>();
         menuOpties.add("1) Headsets");
-        menuOpties.add("2) Laptops");
+        menuOpties.add("2) speaker");
         menuOpties.add("3) Alle headsets tonen");
         menuOpties.add("4) Alle speakers tonen");
         menuOpties.add("5) Alle products tonen");
