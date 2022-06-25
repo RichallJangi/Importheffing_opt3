@@ -25,7 +25,7 @@ public class HeadsetHandler {
             System.out.println("_______________");
             System.out.println("Productnaam:" + headset.getBrand());
             System.out.println("Kleur:" + headset.getColor());
-            System.out.println("totale prijs:" + headset.totalPrice);
+            System.out.println("totale prijs:" + CalculatePrice.getTotalOrdercost(headset.getOrderCost(),headset.getShippingCost()));
             System.out.println("_______________");
         }
     }
