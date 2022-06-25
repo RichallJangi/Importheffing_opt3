@@ -1,6 +1,5 @@
 
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Menu {
@@ -11,7 +10,7 @@ public class Menu {
 
     public String menuInterface() {
 
-        int selectie = menuOpties();
+        int selectie = MenuOpties.menuOpties();
 
 // switch case voor menu opties
         switch (selectie) {
@@ -35,11 +34,7 @@ public class Menu {
                   System.out.println("de headset heeft een kabel ja/nee");
                   String wire = scanner.nextLine();
 
-                  if (wire.equals("ja")) {
-                      headset.setWire(true);
-                  } else {
-                      headset.setWire(false);
-                  }
+                 headset.setWire(wire.equals("ja"));
 
                   HeadsetHandler.getInstance().addHeadset(headset);
                   ProductHandler.addProduct(headset);
@@ -75,14 +70,7 @@ public class Menu {
 
 
 
-//
-//                ProductHandler.addProduct(speaker);
-//                SpeakerHandler.addSpeakers(speaker);
-//                System.out.println("Bestelbedrag:" + speaker.getTotalOrdercost());
-//
-//                System.out.println("Invoerrechten bedrag:" + speaker.getCalculateImporfee());
-//                System.out.println("BTW bedrag:" + speaker.getCalculateBtw());
-//                System.out.println("Totale prijs" + speaker.getTotalPrice());
+
             }
 
                 break;
@@ -107,24 +95,6 @@ public class Menu {
     }
 
 
-    public  int menuOpties(){
-        int selectie;
-        Scanner scanner = new Scanner(System.in);
-        ArrayList<String> menuOpties = new ArrayList<>();
-        menuOpties.add("1) Headsets");
-        menuOpties.add("2) Laptops");
-        menuOpties.add("3) Alle headsets tonen");
-        menuOpties.add("4) Alle speakers tonen");
-        menuOpties.add("5) Alle products tonen");
 
-
-        for(String opties :menuOpties){
-            System.out.println(opties);
-        }
-
-        System.out.println("Maak een keuze");
-        selectie = scanner.nextInt();
-        return selectie;
-    }
 
 }
