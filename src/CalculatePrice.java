@@ -10,7 +10,7 @@ public class CalculatePrice {
 
     public static Double getTotalPrice(double totalOrderCost, double importfee, double btw) {
         double totalPrice;
-        if(totalOrderCost > 150) {
+        if(totalOrderCost >= 150) {
             totalPrice = (totalOrderCost) * (importfee + 1) * (btw + 1);
         }else {
             totalPrice = totalOrderCost ;
@@ -18,6 +18,9 @@ public class CalculatePrice {
 
         return totalPrice;
     }
+
+
+
 
 
 
