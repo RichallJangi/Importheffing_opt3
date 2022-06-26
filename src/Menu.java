@@ -1,6 +1,7 @@
 
 
 import javax.swing.*;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class Menu {
@@ -65,11 +66,17 @@ public class Menu {
     }
 
     public void showOrderDetails(Product product){
+        HashMap<String, Double> hm = new HashMap<String, Double>();
         product.totalOrderCost = CalculatePrice.getTotalOrdercost(product.getOrderCost(), product.getShippingCost());
         System.out.println("Bestelbedrag:" + product.totalOrderCost);
         product.importfee = CalculatePrice.getCalculateImporfee(product.totalOrderCost, product.importfee);
         System.out.println("Invoerrechten bedrag:" + product.importfee);
-        product.btw = CalculatePrice.getCalculateBtw(product.totalOrderCost, product.getOrderCost(), product.getShippingCost(),product.importfee, product.btw);
+        hm.put("totalOrderCost", product.totalOrderCost);
+        hm.put("orderCost",product.getOrderCost());
+        hm.put("shippingCost", product.getShippingCost());
+        hm.put("importfee", product.importfee);
+        hm.put("btw", product.btw);
+        product.btw = CalculatePrice.getCalculateBtw(hm);
         System.out.println("BTW bedrag:" + product.btw );
         product.totalPrice = CalculatePrice.getTotalPrice(product.totalOrderCost, product.importfee, product.btw);
         System.out.println("Totale prijs" + product.totalPrice);
