@@ -60,8 +60,6 @@ abstract class Product {
     }
 
 
-
-
     public abstract String getSpecs();
 
 

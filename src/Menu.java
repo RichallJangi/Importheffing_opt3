@@ -42,6 +42,7 @@ public class Menu {
     public Speaker fillInOrderSpeaker(){
         Speaker speaker = new Speaker(0.070, 0.17);
         System.out.println("Voer bestel bedrag in");
+
         speaker.setOrderCost(scanner.nextDouble());
         System.out.println("Voer verzendkosten in");
         speaker.setShippingCost(scanner.nextDouble());
@@ -54,6 +55,7 @@ public class Menu {
         speaker.setWattage(scanner.nextInt());
         System.out.println("Boxsize speaker");
         speaker.setBoxSize(scanner.nextDouble());
+
 
         return speaker;
     }
@@ -74,12 +76,15 @@ public class Menu {
         hm.put("totalOrderCost", product.totalOrderCost);
         hm.put("orderCost",product.getOrderCost());
         hm.put("shippingCost", product.getShippingCost());
+
         hm.put("importfee", product.importfee);
         hm.put("btw", product.btw);
         product.btw = CalculatePrice.getCalculateBtw(hm);
         System.out.println("BTW bedrag:" + product.btw );
-        product.totalPrice = CalculatePrice.getTotalPrice(product.totalOrderCost, product.importfee, product.btw);
-        System.out.println("Totale prijs" + product.totalPrice);
+
+        product.totalPrice = CalculatePrice.getTotalPrice(product.totalOrderCost, 0.070, 0.17);
+
+        System.out.println("Totale prijs:" + product.totalPrice);
     }
 
 
