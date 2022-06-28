@@ -16,7 +16,9 @@ public class SpeakerHandler {
         }
     public  void addSpeakers(Speaker newSpeaker){
 
-        allSpeakers.add(newSpeaker);
+            allSpeakers.add(newSpeaker);
+
+
     }
 
     public static void showSpeakers()  {

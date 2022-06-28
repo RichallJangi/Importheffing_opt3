@@ -15,12 +15,16 @@ public class ProductHandler {
         for(Product product: allProducts ){
             System.out.println("_______________");
             System.out.println("Productnaam:" + product.getBrand()  + product.getSpecs());
+            System.out.println("Kosten:" + product.totalPrice);
 
         }
 
 
 
     }
+
+
+
 
 }
 
